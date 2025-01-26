@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "baseUrl": "./test-automation",
+    "paths": {
+      "@fixtures/*": ["src/fixtures/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"]
+    },
+    "outDir": "./dist",
+    "types": ["node", "@playwright/test"],
+    "esModuleInterop": true
+  },
+  "include": [
+    "test-automation/src/**/*",
+    "test-automation/tests/**/*",
+    "playwright.config.ts"
+  ],
+  "exclude": ["node_modules"]
+}
