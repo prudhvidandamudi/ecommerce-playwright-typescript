@@ -9,7 +9,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": [
+    "**/**/*.{ts,tsx}": [
       "eslint --fix",
       "prettier --write"
     ]
