@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:ui": "playwright test tests/ui/"
   },
   "lint-staged": {
     "**/**/*.{ts,tsx}": [

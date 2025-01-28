@@ -9,8 +9,8 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'https://www.automationexercise.com',
-    // screenshot: 'only-on-failure',
-    // video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
     trace: 'on-first-retry',
     testIdAttribute: 'data-qa',
   },
