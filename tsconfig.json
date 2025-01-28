@@ -6,19 +6,15 @@
     "strict": true,
     "baseUrl": "./test-automation",
     "paths": {
-      "@fixtures/*": ["src/fixtures/*"],
-      "@pages/*": ["src/pages/*"],
-      "@utils/*": ["src/utils/*"],
-      "@customTypes/*": ["src/types/*"]
+      "@fixtures/*": ["fixtures/*"],
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
+      "@customTypes/*": ["types/*"]
     },
     "outDir": "./dist",
     "types": ["node", "@playwright/test"],
     "esModuleInterop": true
   },
-  "include": [
-    "test-automation/src/**/*",
-    "test-automation/tests/**/*",
-    "playwright.config.ts"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["test-automation/**/*.ts", "playwright.config.ts"],
+  "exclude": ["node_modules", "dist"]
 }

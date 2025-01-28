@@ -24,7 +24,7 @@ class RegisterFormPage extends BasePage {
   private readonly zipcodeTextbox: Locator;
   private readonly mobileNumberTextbox: Locator;
   private readonly createAccountButton: Locator;
-  private readonly accountCreatedMessage: Locator;
+  readonly accountCreatedMessage: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -153,8 +153,8 @@ class RegisterFormPage extends BasePage {
     await this.createAccountButton.click();
   }
 
-  public async validateAccountCreated() {
-    await expect(this.accountCreatedMessage).toHaveText('Account Created!');
+  navigateTo(): Promise<void> {
+    throw new Error('Method not implemented.');
   }
 
   public async fillRegisterForm(userData: UserData) {

@@ -1,19 +1,17 @@
 import { expect, Locator, Page } from '@playwright/test';
 import LoginPage from './LoginPage';
-import HomePage from './HomePage';
-import ContactUsPage from './ContactUsPage';
 
-class BasePage {
+abstract class BasePage {
   protected readonly page: Page;
-  private readonly homeLink: Locator;
-  private readonly productsLink: Locator;
-  private readonly cartLink: Locator;
-  private readonly signupLoginLink: Locator;
-  private readonly contactUsLink: Locator;
-  private readonly logoutLink: Locator;
-  private readonly deleteAccountLink: Locator;
-  private readonly accountDeletedMessage: Locator;
-  private readonly continueButton: Locator;
+  protected readonly homeLink: Locator;
+  protected readonly productsLink: Locator;
+  protected readonly cartLink: Locator;
+  protected readonly signupLoginLink: Locator;
+  protected readonly contactUsLink: Locator;
+  protected readonly logoutLink: Locator;
+  protected readonly deleteAccountLink: Locator;
+  protected readonly accountDeletedMessage: Locator;
+  protected readonly continueButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -32,24 +30,11 @@ class BasePage {
     await this.page.goto('./');
   }
 
-  public async loginPage(): Promise<LoginPage> {
-    await this.signupLoginLink.click();
-    return new LoginPage(this.page);
-  }
+  abstract navigateTo(): Promise<void>;
 
   public async logout(): Promise<LoginPage> {
     await this.logoutLink.click();
     return new LoginPage(this.page);
-  }
-
-  public async homePage(): Promise<HomePage> {
-    await this.homeLink.click();
-    return new HomePage(this.page);
-  }
-
-  public async contactUsPage(): Promise<ContactUsPage> {
-    await this.contactUsLink.click();
-    return new ContactUsPage(this.page);
   }
 
   public async validateAccountDeleted() {

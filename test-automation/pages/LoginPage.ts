@@ -1,6 +1,7 @@
 import { Locator, Page } from '@playwright/test';
-import { BasePage, RegisterFormPage } from '@pages/index';
 import { LoginData, UserData } from '@customTypes/index';
+import BasePage from './BasePage';
+import RegisterFormPage from './RegisterFormPage';
 
 class LoginPage extends BasePage {
   private readonly loginEmailAddressTextbox: Locator;
@@ -49,6 +50,11 @@ class LoginPage extends BasePage {
 
   private async clickSignupButton(): Promise<void> {
     await this.signupButton.click();
+  }
+
+  async navigateTo(): Promise<void> {
+    await this.visitAutomationPractice();
+    await this.signupLoginLink.click();
   }
 
   public async login(loginData: LoginData): Promise<void> {
