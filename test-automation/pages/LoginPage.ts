@@ -10,6 +10,7 @@ class LoginPage extends BasePage {
   private readonly nameTextbox: Locator;
   private readonly signupEmailAddressTextbox: Locator;
   private readonly signupButton: Locator;
+  readonly pageTitle: string;
 
   constructor(page: Page) {
     super(page);
@@ -26,6 +27,7 @@ class LoginPage extends BasePage {
       .getByRole('textbox', { name: 'Email address' })
       .nth(1);
     this.signupButton = page.getByRole('button', { name: 'Signup' });
+    this.pageTitle = 'Automation Exercise - Signup / Login';
   }
 
   private async fillLoginEmailAddress(email: string): Promise<void> {
